@@ -1,0 +1,189 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6470,        181]
+NotebookOptionsPosition[      6157,        165]
+NotebookOutlinePosition[      6500,        180]
+CellTagsIndexPosition[      6457,        177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"slide", " ", "=", " ", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\frames\\\\x40\\\\\
+A03_00Aa.tiff\>\"", "]"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "*", "dimensions", " ", "are", " ", "1539", " ", "x", " ", "1376"}], ",", 
+    " ", 
+    RowBox[{
+     RowBox[{"or", " ", "~", "17"}], "*", "90", " ", 
+     RowBox[{"x", " ", "~", "15"}], "*", "90"}]}], "**)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"mitoticCells", " ", "=", " ", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\mitosis\\\\A03_\
+00Aa_mitosis.csv\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"interphaseCells", " ", "=", " ", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\mitosis\\\\A03_\
+00Aa_not_mitosis.csv\>\"", "]"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "*", " ", "both", " ", "of", " ", "these", " ", "have", " ", "only", " ", 
+    "one", " ", "row"}], " ", "**)"}], "\[IndentingNewLine]", 
+  RowBox[{"mitoticX", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"mitoticCells", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mitoticY", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"mitoticCells", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"interphaseX", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"interphaseCells", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"interphaseY", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"interphaseCells", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"index", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"x", "=", "0"}], ",", 
+    RowBox[{"x", "\[LessEqual]", "17"}], ",", 
+    RowBox[{"x", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"y", "=", "0"}], ",", 
+       RowBox[{"y", "\[LessEqual]", "14"}], ",", 
+       RowBox[{"y", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"takePicture", "[", 
+        RowBox[{
+         RowBox[{"45", "+", 
+          RowBox[{"(", 
+           RowBox[{"90", "*", "x"}], ")"}]}], ",", 
+         RowBox[{"45", "+", 
+          RowBox[{"(", 
+           RowBox[{"90", "*", "y"}], ")"}]}]}], "]"}]}], "]"}], ";"}]}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", "\"\<done\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"takePicture", "[", 
+     RowBox[{"x_", ",", "y_"}], "]"}], " ", ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"x", " ", "\[NotEqual]", " ", "mitoticX"}], " ", "||", " ", 
+           RowBox[{"y", " ", "\[NotEqual]", " ", "mitoticY"}]}], ")"}], " ", "&&",
+          " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"x", "\[NotEqual]", "interphaseX"}], " ", "||", " ", 
+           RowBox[{"y", "\[NotEqual]", "interphaseY"}]}], ")"}]}], ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Export", "[", 
+          RowBox[{
+           RowBox[{"StringJoin", "[", 
+            RowBox[{
+            "\"\<C:\\\\Users\\\\Kristy\\\\Documents\\\\Noncell \
+images\\\\noncell\>\"", ",", " ", 
+             RowBox[{"ToString", "[", "index", "]"}], ",", " ", 
+             "\"\<.jpg\>\""}], "]"}], ",", " ", 
+           RowBox[{"ImageTake", "[", 
+            RowBox[{"slide", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", " ", "-", " ", "45"}], ",", " ", 
+               RowBox[{"y", " ", "+", " ", "45"}]}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", " ", "-", " ", "45"}], ",", " ", 
+               RowBox[{"x", " ", "+", " ", "45"}]}], "}"}]}], "]"}]}], "]"}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"index", "++"}], ";"}], ",", " ", 
+        RowBox[{"Print", "[", "\"\<false\>\"", "]"}]}], "]"}], ";"}], 
+     "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.683181589167212*^9, 3.683181714972613*^9}, {
+  3.6831818163296127`*^9, 3.683181919749613*^9}, {3.683181968881613*^9, 
+  3.683182218821113*^9}, {3.683182251008613*^9, 3.6831822642186127`*^9}, {
+  3.6831823722306128`*^9, 3.683182379700613*^9}, {3.683182560538113*^9, 
+  3.6831825646931133`*^9}, {3.6831826092931128`*^9, 3.6831826254431133`*^9}, {
+  3.6831828139356127`*^9, 3.6831828214806128`*^9}, {3.683182851948113*^9, 
+  3.683182857220613*^9}, {3.683182898473113*^9, 3.683182902905613*^9}, {
+  3.683182942893113*^9, 3.683183038558113*^9}, {3.6831830845856133`*^9, 
+  3.683183210863113*^9}, {3.683183259173113*^9, 3.6831832718806133`*^9}, {
+  3.683183538783113*^9, 3.6831835467956133`*^9}, {3.683183608455613*^9, 
+  3.6831836124981127`*^9}, {3.683183689868113*^9, 3.683183690158113*^9}}],
+
+Cell[BoxData["\<\"done\"\>"], "Print",
+ CellChangeTimes->{
+  3.683183285283113*^9, 3.683183553238113*^9, {3.683183618070613*^9, 
+   3.683183629850613*^9}, 3.683183704198113*^9}]
+}, Open  ]]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, -9}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5381, 135, 392, "Input"],
+Cell[5964, 159, 177, 3, 22, "Print"]
+}, Open  ]]
+}
+]
+*)
+

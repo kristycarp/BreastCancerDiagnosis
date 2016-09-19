@@ -1,0 +1,316 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11551,        308]
+NotebookOptionsPosition[     10706,        277]
+NotebookOutlinePosition[     11048,        292]
+CellTagsIndexPosition[     11005,        289]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Mitosis", "=", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Documents\\\\Mitotic cell images\\\\*.jpg\>\
+\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MitosisList", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<Mitosis\>\"", ",", " ", 
+     RowBox[{"Length", "[", "Mitosis", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mitosisClassifications", "=", 
+    RowBox[{"Normal", "[", 
+     RowBox[{"AssociationThread", "[", 
+      RowBox[{"Mitosis", ",", "MitosisList"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Interphase", "=", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Documents\\\\Nonmitotic cell \
+images\\\\*.jpg\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InterphaseList", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<Interphase\>\"", ",", " ", 
+     RowBox[{"Length", "[", "Interphase", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"interphaseClassifications", " ", "=", " ", 
+    RowBox[{"Normal", "[", 
+     RowBox[{"AssociationThread", "[", 
+      RowBox[{"Interphase", ",", " ", "InterphaseList"}], "]"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NonCell", "=", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Documents\\\\Noncell images\\\\*.jpg\>\"", 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NonCellList", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<Noncell\>\"", ",", " ", 
+     RowBox[{"Length", "[", "NonCell", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"noncellClassifications", " ", "=", " ", 
+    RowBox[{"Normal", "[", 
+     RowBox[{"AssociationThread", "[", 
+      RowBox[{"NonCell", ",", " ", "NonCellList"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", " ", "=", " ", 
+    RowBox[{"Classify", "[", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+      "mitosisClassifications", ",", "interphaseClassifications", ",", 
+       "noncellClassifications"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.683187763717802*^9, 3.683187826672102*^9}, {
+   3.6831878759701023`*^9, 3.6831879187856026`*^9}, {3.6831879997849035`*^9, 
+   3.6831880274371033`*^9}, {3.683188099374504*^9, 3.683188104730304*^9}, {
+   3.6831881409556046`*^9, 3.683188142952404*^9}, {3.683188195758004*^9, 
+   3.6831882249103045`*^9}, {3.6831882621183047`*^9, 3.683188314757905*^9}, {
+   3.6831883902510056`*^9, 3.683188416647606*^9}, {3.6831888411827073`*^9, 
+   3.683188946900608*^9}, {3.6831890274123087`*^9, 3.6831892679249096`*^9}, {
+   3.6831894026528106`*^9, 3.683189405034011*^9}, {3.683190099037915*^9, 
+   3.683190143568715*^9}, 3.6831903042582164`*^9, {3.683190411141517*^9, 
+   3.6831904355956173`*^9}, {3.683190670813719*^9, 3.683190687260019*^9}, 
+   3.6831910026486206`*^9, {3.683196651079807*^9, 3.6831966907178073`*^9}, {
+   3.6831967624106073`*^9, 3.6831967745356073`*^9}, {3.6831984418482137`*^9, 
+   3.6831984657944136`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"nMitotic", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nTotal", " ", "=", " ", "0"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6831951760287*^9, 3.6831951763587*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"scan", "[", 
+     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"diagnosis", " ", "=", " ", 
+       RowBox[{"c", "[", 
+        RowBox[{"ImageTake", "[", 
+         RowBox[{"toScan", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"y", "-", "45"}], ",", " ", 
+            RowBox[{"y", "+", "45"}]}], "}"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x", "-", "45"}], ",", " ", 
+            RowBox[{"x", "+", "45"}]}], "}"}]}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"diagnosis", " ", "===", " ", "\"\<Mitosis\>\""}], ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"nMitotic", "++"}], ";", 
+          RowBox[{"nTotal", "++"}], ";", 
+          RowBox[{"Print", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<x: \>\"", ",", " ", 
+             RowBox[{"ToString", "[", "x", "]"}], ",", " ", "\"\<, y: \>\"", 
+             ",", " ", 
+             RowBox[{"ToString", "[", "y", "]"}]}], "]"}], "]"}], ";"}], 
+         ")"}], ",", " ", "\[IndentingNewLine]", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"diagnosis", " ", "===", " ", "\"\<Interphase\>\""}], ",",
+             " ", 
+            RowBox[{"nTotal", "++"}], "\[IndentingNewLine]", ",", 
+            "\[IndentingNewLine]", "Nothing"}], " ", "]"}], ";"}], ")"}]}], 
+       "]"}]}], "\[IndentingNewLine]", ")"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.683196109799904*^9, 3.6831961190557036`*^9}, {
+  3.6831961575953035`*^9, 3.6831962472406044`*^9}, {3.683196353196205*^9, 
+  3.683196354147805*^9}, {3.683196405752705*^9, 3.683196409927905*^9}, {
+  3.683196952732709*^9, 3.6831969647722087`*^9}}],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{3.683196351628705*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"toScan", " ", "=", " ", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\frames\\\\x40\\\\\
+A03_00Cd.tiff\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6831968932465086`*^9, 3.683196915579509*^9}, {
+  3.6831970492263093`*^9, 3.6831970493823094`*^9}, {3.6831986845478153`*^9, 
+  3.683198689539815*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"*", "SCANNER"}], "**)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"x", "=", " ", "45"}], ",", " ", 
+      RowBox[{"x", " ", "\[LessEqual]", " ", 
+       RowBox[{
+        RowBox[{"ImageDimensions", "[", "toScan", "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+      RowBox[{"x", " ", "=", " ", 
+       RowBox[{"x", " ", "+", " ", "25"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"y", " ", "=", " ", "45"}], ",", " ", 
+        RowBox[{"y", "\[LessEqual]", 
+         RowBox[{
+          RowBox[{"ImageDimensions", "[", "toScan", "]"}], "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", 
+        RowBox[{"y", " ", "=", " ", 
+         RowBox[{"y", " ", "+", " ", "25"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"scan", "[", 
+         RowBox[{"x", ",", " ", "y"}], "]"}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Print", "[", 
+    RowBox[{"StringJoin", "[", 
+     RowBox[{
+      RowBox[{"ToString", "[", "nMitotic", "]"}], ",", " ", "\"\</\>\"", ",", 
+      " ", 
+      RowBox[{"ToString", "[", "nTotal", "]"}], ",", " ", 
+      "\"\<cells are undergoing mitosis\>\""}], "]"}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.683191038583421*^9, 3.6831910992176213`*^9}, {
+   3.683191150861122*^9, 3.6831911545833216`*^9}, 3.6831915450492005`*^9, {
+   3.6831950208657*^9, 3.6831950720532*^9}, 3.6831951386486998`*^9, {
+   3.6831953587747*^9, 3.6831953701521997`*^9}, 3.6831957362299013`*^9, {
+   3.6831958301690016`*^9, 3.6831958391259017`*^9}, {3.683195892654702*^9, 
+   3.683195893403502*^9}, {3.6831959997604027`*^9, 3.683196058736003*^9}, {
+   3.683196335902605*^9, 3.683196338715605*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"x: 270, y: 620\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.6831988000466156`*^9}],
+
+Cell[BoxData["\<\"x: 445, y: 470\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.683198868299816*^9}],
+
+Cell[BoxData["\<\"x: 645, y: 895\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.683198950394617*^9}],
+
+Cell[BoxData["\<\"x: 720, y: 470\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.6831989768928165`*^9}],
+
+Cell[BoxData["\<\"x: 1095, y: 1045\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.6831991327430177`*^9}],
+
+Cell[BoxData["\<\"x: 1170, y: 345\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.6831991580920177`*^9}],
+
+Cell[BoxData["\<\"x: 1345, y: 345\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.683199229615018*^9}],
+
+Cell[BoxData["\<\"x: 1520, y: 470\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.683199304550218*^9}],
+
+Cell[BoxData["\<\"8/25cells are undergoing mitosis\"\>"], "Print",
+ CellChangeTimes->{
+  3.6831963953531055`*^9, 3.683196464193906*^9, 3.6831968767060084`*^9, {
+   3.683196978214509*^9, 3.683196996305609*^9}, 3.6831970602961097`*^9, 
+   3.683199311527418*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1902, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3276, 79, 297, "Input"],
+Cell[3837, 101, 285, 7, 69, "Input"],
+Cell[4125, 110, 1986, 48, 183, "Input"],
+Cell[6114, 160, 69, 1, 30, "Input"],
+Cell[6186, 163, 388, 9, 30, "Input"],
+Cell[CellGroupData[{
+Cell[6599, 176, 1830, 41, 126, "Input"],
+Cell[CellGroupData[{
+Cell[8454, 221, 243, 4, 22, "Print"],
+Cell[8700, 227, 241, 4, 22, "Print"],
+Cell[8944, 233, 241, 4, 22, "Print"],
+Cell[9188, 239, 243, 4, 22, "Print"],
+Cell[9434, 245, 245, 4, 22, "Print"],
+Cell[9682, 251, 244, 4, 22, "Print"],
+Cell[9929, 257, 242, 4, 22, "Print"],
+Cell[10174, 263, 242, 4, 22, "Print"],
+Cell[10419, 269, 259, 4, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

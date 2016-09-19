@@ -1,0 +1,156 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5900,        148]
+NotebookOptionsPosition[      5587,        132]
+NotebookOutlinePosition[      5930,        147]
+CellTagsIndexPosition[      5887,        144]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"index", " ", "=", " ", "245"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"num", " ", "=", " ", "\"\<5\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<", "17"}], ",", 
+    RowBox[{"i", "++"}], ",", " ", 
+    RowBox[{"exportInterphase", "[", "i", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", "\"\<done\>\"", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"exportInterphase", "[", "i_", "]"}], " ", ":=", " ", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"names", " ", "=", " ", 
+     RowBox[{"List", "[", 
+      RowBox[{
+      "\"\<Aa\>\"", ",", " ", "\"\<Ab\>\"", ",", " ", "\"\<Ac\>\"", ",", " ", 
+       "\"\<Ad\>\"", ",", " ", "\"\<Ba\>\"", ",", " ", "\"\<Bb\>\"", ",", 
+       " ", "\"\<Bc\>\"", ",", " ", "\"\<Bd\>\"", ",", " ", "\"\<Ca\>\"", ",",
+        " ", "\"\<Cb\>\"", ",", " ", "\"\<Cc\>\"", ",", " ", "\"\<Cd\>\"", 
+       ",", " ", "\"\<Da\>\"", ",", " ", "\"\<Db\>\"", ",", " ", "\"\<Dc\>\"",
+        ",", " ", "\"\<Dd\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"original", " ", "=", " ", 
+     RowBox[{"Import", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\frames\\\\x40\
+\\\\A03_0\>\"", ",", " ", "num", ",", " ", 
+        RowBox[{"names", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", " ", "\"\<.tiff\>\""}], "]"}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"data", " ", "=", " ", 
+     RowBox[{"Import", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<C:\\\\Users\\\\Kristy\\\\Downloads\\\\A03\\\\A03\\\\mitosis\\\\\
+A03_0\>\"", ",", "num", ",", " ", 
+        RowBox[{"names", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
+        "\"\<_not_mitosis.csv\>\""}], "]"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"j", "=", "1"}], ",", 
+      RowBox[{"j", "\[LessEqual]", 
+       RowBox[{"Length", "[", "data", "]"}]}], ",", 
+      RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"x", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"y", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"cropped", " ", "=", " ", 
+        RowBox[{"ImageTake", "[", 
+         RowBox[{"original", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"y", " ", "-", " ", "45"}], ",", " ", 
+            RowBox[{"y", " ", "+", " ", "45"}]}], "}"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x", " ", "-", " ", "45"}], ",", " ", 
+            RowBox[{"x", " ", "+", " ", "45"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"indexString", " ", "=", " ", 
+        RowBox[{"ToString", "[", "index", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{
+          "\"\<C:\\\\Users\\\\Kristy\\\\Documents\\\\Nonmitotic cell images\\\
+\\interphase\>\"", ",", "  ", "indexString", ",", " ", "\"\<.jpg\>\""}], 
+          "]"}], ",", " ", "cropped"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"index", "++"}], ";"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   ")"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6831624093569007`*^9, 3.6831626998570023`*^9}, {
+   3.6831627503263025`*^9, 3.683162834075703*^9}, {3.6831629289192038`*^9, 
+   3.6831633495644064`*^9}, {3.6831635364268074`*^9, 
+   3.6831635404772077`*^9}, {3.6831635841292076`*^9, 
+   3.6831635888610077`*^9}, {3.6831638287490015`*^9, 
+   3.6831638365671015`*^9}, {3.6831639034189014`*^9, 3.683163906568902*^9}, {
+   3.683164195928403*^9, 3.683164208340103*^9}, {3.683164380960404*^9, 
+   3.6831644103730044`*^9}, {3.683164675597706*^9, 3.6831646916545057`*^9}, {
+   3.683166609466504*^9, 3.683166682843504*^9}, {3.683166722319504*^9, 
+   3.683166723454504*^9}, {3.683167016009504*^9, 3.6831670717945037`*^9}, 
+   3.6831671455575037`*^9, {3.683167206883504*^9, 3.683167257230504*^9}, {
+   3.6831675854715037`*^9, 3.6831676113735037`*^9}, {3.683167908251504*^9, 
+   3.6831679259745035`*^9}, {3.6831680291305037`*^9, 3.6831680565055037`*^9}, 
+   3.6831682613495035`*^9, {3.683168501647004*^9, 3.683168502371504*^9}, {
+   3.6831704412071037`*^9, 3.683170611857104*^9}, {3.6831706640721035`*^9, 
+   3.683170695621104*^9}, {3.6831707536621037`*^9, 3.6831707791871037`*^9}}],
+
+Cell[BoxData["\<\"done\"\>"], "Print",
+ CellChangeTimes->{{3.6831707635031037`*^9, 3.683170785875104*^9}}]
+}, Open  ]]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, -9}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4882, 104, 354, "Input"],
+Cell[5465, 128, 106, 1, 22, "Print"]
+}, Open  ]]
+}
+]
+*)
+
